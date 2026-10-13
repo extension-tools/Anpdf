@@ -27,3 +27,9 @@ Playwright / Chrome for Testing 151 in isolated profiles: widths 1440, 1024, 390
 Three cold localhost measurements: DOMContentLoaded 26.0-27.2 ms, load 28.0-43.3 ms, no observed long tasks. Approximate JS heap 1.31 MB. These are local samples, not total browser memory or production-network guarantees.
 
 Publishing remains `git push origin main`; GitHub Pages serves the root with `.nojekyll`.
+
+## Local copy revision — 13 October 2026
+
+The owner approved revised wording after the spec-to-patch review: **Welcome to Annotate PDF**, **Get ready to annotate your first PDF.**, and **You’re ready to make your first annotation.** Step 1 opens the Extensions menu, step 2 pins Annotate PDF, and step 3 opens the editor and selects a document with Open PDF. The two illustrations, brand assets and product palette are unchanged.
+
+The page-only Playwright check passed at 1440/1024/390/320 px; desktop and mobile screenshots were reviewed. The updated heading assertion failed before the correction and passed afterward. This revision is local only, pending a separately authorized publication under the current local-delivery rule.
