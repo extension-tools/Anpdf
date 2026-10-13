@@ -52,3 +52,9 @@ Isolated Playwright compared computed states directly against the served referen
 Both installation buttons and their platform captions now share an inline flex column. “For Chrome on desktop” is centered relative to its button with a 12 px gap and 18 px type. The group fills the content width on small screens. Hero spacing belongs to the group, not the button. CSS cache version: 4.
 
 Focused isolated Playwright regression: the prior hero caption failed the center-alignment assertion; the update passed at 320/768/1440 px for both groups, with zero measured center offset, no horizontal overflow and working installation dialogs. Screenshots and final diff reviewed. Evidence: `caption-check.mjs`, `caption-before.json`, `caption-after.json`, `caption-*.png` in the product workspace. No script, state, design-system or reference changes.
+
+## Clearer download outcome
+
+The Download preview now labels its checkmark “Ready to share”. The label is hidden visually and from accessibility exposure for Open and Annotate while retaining its layout space. The benefit below reads “Your annotations stay in the downloaded PDF”. Mobile file headers wrap the status onto its own row. CSS cache version: 5.
+
+Focused isolated Chrome verification passed 48 assertions at 320/390/768/1440 px: stage-appropriate status and notes, stable card height across steps, no actual download from the preview, no horizontal overflow or text below 18 px, and unchanged initial keyword count (12). Screenshots and final diff reviewed. Evidence: `workflow-clear-check.mjs`, `workflow-clear.json`, `workflow-clear-*.png` in the product workspace. No script, persistence, design-system or reference changes.
