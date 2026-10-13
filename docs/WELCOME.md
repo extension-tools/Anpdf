@@ -43,3 +43,11 @@ The stroke regression failed before the fix and passed afterward. Isolated Playw
 ## Publication authorization — 13 October 2026
 
 The owner explicitly authorized GitHub access and publication for Anpdf-site, including the revised text and puzzle icons. The local-only restriction in the extension project remains applicable to the extension; its source is not published by this website workflow.
+
+## Compact first viewport — 13 October 2026
+
+Approved layout: only **Welcome to Annotate PDF** and **Follow these three steps to get started.** in the header, followed immediately by numbered instructions 1–2 and the first illustration. Before the second illustration there is only instruction 3. Removed the large header icon, eyebrow, section labels and both section headings; retained the two illustrations, brand palette, font, extension icons and closing line. Section accessible names remain present.
+
+The desktop layout uses a 24 px top inset, 24 px header gap, 20 px instruction-to-image gaps and a 20 px section gap. Mobile spacing preserves legibility. In isolated Chrome, the first illustration ends at y=634.2 and the second begins at y=703.8: 64.2 px of the second illustration are visible at 1366×768 and 196.2 px at 1440×900. The viewport checks failed on the previous layout and pass on this revision. Also checked 1024×900, 390×844 and 320×740 for clipping, loaded assets, neutral puzzle glyphs, coral highlights and reduced motion. Desktop/mobile screenshots were visually reviewed.
+
+Three cold localhost samples: DOMContentLoaded 24.5–27.0 ms, load 25.7–43.1 ms, no observed long tasks, approximate JS heap 1.31 MB. These measurements do not represent production network or total browser memory. Publication of this layout was authorized by the owner.

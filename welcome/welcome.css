@@ -47,9 +47,9 @@ body {
 main {
   max-width:1088px;
   margin:0 auto;
-  padding:64px 48px 0
+  padding:24px 48px 0
 }
-h1,h2,p,figure {
+h1,p,figure {
   margin:0
 }
 strong {
@@ -67,25 +67,11 @@ img {
 }
 .welcome-header {
   text-align:center;
-  margin-bottom:64px;
+  margin-bottom:24px;
   animation:enter .32s ease-out both
 }
-.brand-icon {
-  width:64px;
-  height:64px;
-  margin-bottom:20px
-}
-.eyebrow,.step-label {
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:1.6px
-}
-.eyebrow {
-  color:var(--primary);
-  margin-bottom:12px
-}
 h1 {
-  font-size:44px;
+  font-size:40px;
   line-height:1.2;
   letter-spacing:-1.2px;
   font-weight:600
@@ -94,29 +80,18 @@ h1 span {
   color:var(--primary)
 }
 .intro {
-  font-size:20px;
+  font-size:18px;
   line-height:1.5;
   color:var(--secondary);
-  margin-top:12px
+  margin-top:8px
 }
-.step-heading {
+.step-instructions {
   text-align:center;
-  margin-bottom:28px
+  margin-bottom:20px
 }
-.step-label {
-  color:var(--secondary)
-}
-h2 {
-  font-size:26px;
-  line-height:1.35;
-  letter-spacing:-.5px;
-  font-weight:600;
-  margin-top:12px
-}
-.step-heading p {
+.step-instructions p {
   font-size:16px;
-  line-height:1.85;
-  margin-top:14px
+  line-height:1.85
 }
 .inline-number {
   display:inline-flex;
@@ -396,7 +371,7 @@ h2 {
   stroke-linejoin:round
 }
 .open-step {
-  margin-top:76px
+  margin-top:20px
 }
 .open-browser .chrome-address {
   gap:16px
@@ -506,14 +481,10 @@ footer img {
 }
 @media(max-width:720px) {
   main {
-    padding:40px 20px 0
+    padding:28px 20px 0
   }
   .welcome-header {
-    margin-bottom:44px
-  }
-  .brand-icon {
-    width:56px;
-    height:56px
+    margin-bottom:24px
   }
   h1 {
     font-size:32px;
@@ -522,16 +493,9 @@ footer img {
   .intro {
     font-size:17px
   }
-  h2 {
-    font-size:23px
-  }
-  .step-heading p {
+  .step-instructions p {
     font-size:14px;
     line-height:1.9
-  }
-  .step-label {
-    font-size:10px;
-    letter-spacing:1.2px
   }
   .chrome-tabs {
     padding:0 12px;
@@ -566,7 +530,7 @@ footer img {
     left:calc(100% + 4px)
   }
   .open-step {
-    margin-top:52px
+    margin-top:32px
   }
   .open-arrow {
     right:95px;
