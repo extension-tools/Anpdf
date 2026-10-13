@@ -1,0 +1,109 @@
+@font-face {
+  font-family:Montserrat;
+  src:url('../welcome/assets/Montserrat-Regular.woff2') format('woff2');
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+@font-face {
+  font-family:Montserrat;
+  src:url('../welcome/assets/Montserrat-SemiBold.woff2') format('woff2');
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+}
+:root {
+  color-scheme:light;
+  font-family:Montserrat,ui-sans-serif,sans-serif;
+  font-synthesis:none;
+  color:#292a2e;
+  background:#f1f4f8;
+}
+* { box-sizing:border-box; }
+body { margin:0; }
+main {
+  max-width:848px;
+  margin:0 auto;
+  padding:48px 32px 64px;
+  font-size:16px;
+  line-height:1.75;
+  overflow-wrap:anywhere;
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:600;
+  margin-bottom:24px;
+}
+.brand img { flex-shrink:0; }
+h1 {
+  margin:0;
+  font-size:40px;
+  line-height:1.2;
+  letter-spacing:-1.2px;
+  font-weight:600;
+}
+.updated {
+  color:#6b6e76;
+  margin:12px 0 24px;
+  font-size:14px;
+}
+p { margin:0 0 16px; }
+section { margin-top:36px; }
+h2 {
+  font-size:22px;
+  font-weight:600;
+  line-height:1.4;
+  letter-spacing:-.3px;
+  margin:0 0 16px;
+}
+a {
+  color:#b84230;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+a:hover { color:#a43828; }
+a:focus-visible {
+  outline:2px solid #b84230;
+  outline-offset:4px;
+  border-radius:2px;
+}
+code {
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:.95em;
+  overflow-wrap:anywhere;
+}
+.permissions-table { margin:24px 0; }
+table {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:15px;
+  line-height:1.6;
+  background:#fafbfc;
+}
+caption {
+  text-align:left;
+  font-weight:600;
+  padding-bottom:12px;
+}
+th,td {
+  text-align:left;
+  vertical-align:top;
+  padding:14px 16px;
+  border-bottom:1px solid #0b120e24;
+}
+th { font-weight:600; }
+thead { background:#ecebf0; }
+th:first-child { width:35%; }
+section:last-child p:last-child { margin-bottom:0; }
+@media(max-width:600px) {
+  main { padding:28px 20px 40px; }
+  h1 { font-size:32px; letter-spacing:-.6px; }
+  h2 { font-size:20px; }
+  .brand { margin-bottom:20px; }
+  section { margin-top:28px; }
+  th,td { padding:12px 10px; }
+  th:first-child { width:42%; }
+}

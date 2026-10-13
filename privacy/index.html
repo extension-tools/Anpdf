@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Annotate PDF handles your documents, local drafts and browser permissions. Your PDFs are processed on your device.">
+  <title>Privacy Policy — Annotate PDF</title>
+  <link rel="canonical" href="https://annotatepdf.org/privacy/">
+  <link rel="icon" href="../welcome/assets/annotate-pdf.png" type="image/png">
+  <link rel="stylesheet" href="./privacy.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand"><img src="../welcome/assets/annotate-pdf.png" width="32" height="32" alt=""><span>Annotate PDF</span></div>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: <time datetime="2026-10-13">October 13, 2026</time></p>
+      <p>This policy explains how Annotate PDF handles information when you use the extension and its website. Annotate PDF lets you open a local PDF, add annotations, and export or print the result. No account is required.</p>
+    </header>
+
+    <section aria-labelledby="local-data">
+      <h2 id="local-data">1. Your PDFs and local storage</h2>
+      <p>The extension processes only PDF files you choose to open. Viewing, annotating, exporting and preparing PDFs for printing happen on your device. We do not upload your PDF contents, filenames or annotations to our servers or send them to third parties.</p>
+      <p>To help you continue your work, the extension saves a local recovery copy of your current PDF, its filename, annotations, unfinished edits, editor position and preferences in your browser’s local storage (IndexedDB). This information can remain between sessions; it is not synced to a cloud account.</p>
+      <p>Successfully opening a different PDF replaces the previous locally saved document. Preferences may remain until cleared. Exported PDF files remain wherever you saved them.</p>
+    </section>
+
+    <section aria-labelledby="permissions">
+      <h2 id="permissions">2. Browser access and permissions</h2>
+      <p>The current extension requests no additional extension permissions or access to websites you visit. It does not collect visited URLs, domains, page titles or browsing history, and it does not read or modify the contents of your web pages.</p>
+      <div class="permissions-table">
+        <table>
+          <caption>Permissions and capabilities in the current version</caption>
+          <thead><tr><th scope="col">Permission or capability</th><th scope="col">How Annotate PDF uses it</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>tabs</code>, <code>activeTab</code></th><td>Not requested. The extension does not monitor your browsing activity.</td></tr>
+            <tr><th scope="row">Host permissions, including <code>&lt;all_urls&gt;</code></th><td>Not requested. The extension does not access websites you visit.</td></tr>
+            <tr><th scope="row"><code>scripting</code>, <code>cookies</code>, <code>history</code></th><td>Not requested. No scripts are injected into web pages.</td></tr>
+            <tr><th scope="row"><code>storage</code>, <code>unlimitedStorage</code></th><td>Not requested. Local recovery and preferences use IndexedDB, without cloud sync.</td></tr>
+            <tr><th scope="row"><code>downloads</code></th><td>Not requested. Export uses the browser’s normal file-download mechanism.</td></tr>
+            <tr><th scope="row">Incognito mode</th><td>Not supported by the current extension.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The extension opens or focuses its own editor tab and opens a welcome page after installation. It may also open a locally generated PDF for printing. These operations do not require the <code>tabs</code> permission and do not involve collecting information about websites you browse.</p>
+    </section>
+
+    <section aria-labelledby="tracking">
+      <h2 id="tracking">3. No tracking; website and support</h2>
+      <p>The extension has no usage analytics, advertising, tracking pixels or automatic diagnostic reporting. It does not send usage events or collect website domains. We do not sell or rent your personal information.</p>
+      <p>Our welcome and policy pages do not include analytics or advertising scripts. They are hosted on GitHub Pages. Opening either page makes a normal website request, and GitHub logs visitors’ IP addresses for security. The extension does not attach PDF contents, filenames or annotations to these visits. See <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages data collection</a> and the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+      <p>If you contact us by email, we receive your email address, message and any attachments you choose to send. We use that information to handle your request. No document or browsing information is automatically attached by the extension.</p>
+    </section>
+
+    <section aria-labelledby="choices">
+      <h2 id="choices">4. Your choices, changes and contact</h2>
+      <p>You control which PDFs you open, save and share. You can clear locally stored extension data using your browser’s storage tools, delete exported files yourself, or uninstall the extension. Clearing extension data does not delete PDFs you have exported.</p>
+      <p>If our data practices change, we will update this policy and provide any additional notice or obtain consent required by applicable law.</p>
+      <p>For privacy questions or requests concerning information you have sent us, contact <a href="mailto:bestusers2015@gmail.com">bestusers2015@gmail.com</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
