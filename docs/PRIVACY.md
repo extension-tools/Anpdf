@@ -40,3 +40,7 @@ Local page load measurements: approximately 27–52ms; no observed long tasks. T
 Review this policy whenever permissions, storage, network behavior, analytics, support processing or hosting change. Keep the public update date accurate. It describes the verified current implementation; it does not assert jurisdiction-specific compliance certification.
 
 Sources: [Chrome tabs permissions](https://developer.chrome.com/docs/extensions/reference/api/tabs#permissions), [GitHub Pages data collection](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection), [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+
+## Contact appearance
+
+The owner requested unaccented contact text. The email inherits the paragraph color and has no underline, including on hover. Its mailto action and visible keyboard focus are preserved; other links retain their original styling.
