@@ -32,10 +32,14 @@ Publishing remains `git push origin main`; GitHub Pages serves the root with `.n
 
 The owner approved revised wording after the spec-to-patch review: **Welcome to Annotate PDF**, **Get ready to annotate your first PDF.**, and **You’re ready to make your first annotation.** Step 1 opens the Extensions menu, step 2 pins Annotate PDF, and step 3 opens the editor and selects a document with Open PDF. The two illustrations, brand assets and product palette are unchanged.
 
-The page-only Playwright check passed at 1440/1024/390/320 px; desktop and mobile screenshots were reviewed. The updated heading assertion failed before the correction and passed afterward. This revision is local only, pending a separately authorized publication under the current local-delivery rule.
+The page-only Playwright check passed at 1440/1024/390/320 px; desktop and mobile screenshots were reviewed. The updated heading assertion failed before the correction and passed afterward. This revision was initially prepared locally; the owner subsequently authorized its publication on 13 October 2026.
 
 ## Browser puzzle correction — 13 October 2026
 
 All three puzzle icons now use a hand-authored outline matching the owner's Chrome reference: top/right protrusions, a left socket, flat bottom and rounded 2-unit stroke. The glyph is neutral #292A2E; the teaching ring and badge remain coral. This is a browser illustration asset, not a replacement for the extension icon or the product's Lucide set.
 
-The stroke regression failed before the fix and passed afterward. Isolated Playwright checks passed at 1440/1024/390/320 px; desktop and mobile silhouettes were visually reviewed. This correction is local only.
+The stroke regression failed before the fix and passed afterward. Isolated Playwright checks passed at 1440/1024/390/320 px; desktop and mobile silhouettes were visually reviewed. This correction was initially prepared locally; the owner subsequently authorized its publication on 13 October 2026.
+
+## Publication authorization — 13 October 2026
+
+The owner explicitly authorized GitHub access and publication for Anpdf-site, including the revised text and puzzle icons. The local-only restriction in the extension project remains applicable to the extension; its source is not published by this website workflow.
