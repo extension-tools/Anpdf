@@ -1,8 +1,8 @@
 # Anpdf website
 
-Official website repository for Anpdf. The current page is a temporary placeholder.
+Official website repository for Anpdf. The current page contains only `Hi world!`.
 
-- Website: https://extension-tools.github.io/Anpdf/
+- Website: https://annotatepdf.org/
 - Hosting: GitHub Pages, published from the root of `main`.
 - Static files are served directly; `.nojekyll` disables Jekyll processing.
 - No build step or external dependencies are required.
