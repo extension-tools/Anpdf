@@ -1,6 +1,6 @@
 # Anpdf website
 
-Official website repository for Anpdf. The home page contains only `Hi world!`.
+Official website repository for Annotate PDF. The home page presents the product through four concise sections and interactive document examples.
 
 - Website: https://annotatepdf.org/
 - Post-install welcome guide: https://annotatepdf.org/welcome/
@@ -14,6 +14,10 @@ Official website repository for Anpdf. The home page contains only `Hi world!`.
 Edit the site files, commit the changes, and push to `main`. GitHub Pages deploys the updated site automatically.
 
 The browser extension source is maintained separately. Local access notes and credentials are not part of this repository.
+
+## Homepage
+
+`index.html`, `home.css`, and `home.js` provide the root landing page. Installation buttons currently open the owner-requested moderation dialog; configure the verified store URL in `home.js` after publication. See [homepage notes](docs/HOMEPAGE.md).
 
 ## Welcome guide
 

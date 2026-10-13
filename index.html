@@ -3,7 +3,111 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anpdf</title>
+  <title>Annotate PDF — Highlight, Add Notes and Download</title>
+  <meta name="description" content="Use Annotate PDF to highlight text, add notes and arrows, and download your marked-up file. For Chrome on desktop, with no PDF uploads or account.">
+  <meta property="og:title" content="Annotate PDF — Make Your Feedback Clear">
+  <meta property="og:description" content="Highlight, explain and download your document with Annotate PDF for Chrome.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://annotatepdf.org/">
+  <link rel="canonical" href="https://annotatepdf.org/">
+  <link rel="icon" href="/welcome/assets/annotate-pdf.png" type="image/png">
+  <link rel="preload" href="/welcome/assets/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/welcome/assets/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/home.css?v=1">
+  <script src="/home.js?v=1" defer></script>
 </head>
-<body>Hi world!</body>
+<body>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-current="page"><img src="/welcome/assets/annotate-pdf.png" width="36" height="36" alt="">Annotate PDF</a>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title"><span>Annotate PDF.</span> Make your feedback clear.</h1>
+        <p class="lead">Highlight, explain and share your PDF.</p>
+        <button class="install" type="button" commandfor="install-dialog" command="show-modal" data-install>Add Annotate PDF to Chrome <span aria-hidden="true">↗</span></button>
+        <p class="platform">For Chrome on desktop.</p>
+      </div>
+      <div class="hero-example example" data-view="annotated">
+        <div class="example-bar"><span>Example PDF · Demo</span><div class="switch interactive" hidden aria-label="Compare document">
+          <button type="button" data-view="original" aria-pressed="false">Original</button>
+          <button type="button" data-view="annotated" aria-pressed="true">Annotated</button>
+        </div></div>
+        <div class="paper hero-paper" role="img" aria-label="Example PDF in Annotate PDF with a highlighted date, an arrow and a note asking to confirm the date.">
+          <div aria-hidden="true" class="paper-content">
+            <div class="doc-heading">Project review<span class="doc-dot"></span></div>
+            <div class="rule w90"></div><div class="rule w70"></div><div class="rule w80"></div>
+            <div class="date"><span>Launch: October 24</span><i class="highlight annotation"></i><svg class="review-arrow annotation" viewBox="0 0 140 90" fill="none"><path d="M128 80C76 85 90 22 12 3M12 3l18 4M12 3l3 18"/></svg></div>
+            <div class="rule w80"></div><div class="rule w95"></div>
+            <div class="review-note annotation">Please confirm<br>this date.</div>
+
+            <div class="doc-bottom"><div class="rule w50"></div><div class="rule w80"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools-section" aria-labelledby="tools-title">
+      <div class="wrap tools-layout">
+        <div class="tools-copy">
+          <h2 id="tools-title">See Annotate PDF<br> in action.</h2>
+          <div class="tool-tabs interactive" role="tablist" aria-label="Annotation examples" hidden>
+            <button type="button" id="tab-highlight" role="tab" aria-selected="true" aria-controls="panel-highlight" tabindex="0" data-tool="highlight"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 11 8-8 4 4-8 8M9 11l4 4-3 3-4-4 3-3ZM6 14l-3 7 7-3M3 21h7"/></svg>Highlight</button>
+            <button type="button" id="tab-note" role="tab" aria-selected="false" aria-controls="panel-note" tabindex="-1" data-tool="note"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16M12 5v15M8 20h8"/></svg>Note</button>
+            <button type="button" id="tab-point" role="tab" aria-selected="false" aria-controls="panel-point" tabindex="-1" data-tool="point"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 19 19 5M6 5h13v13"/></svg>Point</button>
+          </div>
+          <div class="tool-caption">
+            <p id="panel-highlight" role="tabpanel" aria-labelledby="tab-highlight" tabindex="0">Mark what matters.</p>
+            <p id="panel-note" role="tabpanel" aria-labelledby="tab-note" tabindex="0" hidden>Explain it on the page.</p>
+            <p id="panel-point" role="tabpanel" aria-labelledby="tab-point" tabindex="0" hidden>Show exactly where.</p>
+          </div>
+        </div>
+        <div class="tool-example" data-tool="highlight" role="img" aria-label="Document example with the launch date highlighted.">
+          <div class="detail-paper" aria-hidden="true">
+            <div class="rule w65"></div><div class="rule w90"></div>
+            <div class="detail-date">Launch: October 24<i class="tool-highlight"></i><svg class="detail-arrow tool-point" viewBox="0 0 140 90" fill="none"><path d="M128 80C76 85 90 22 12 3M12 3l18 4M12 3l3 18"/></svg></div>
+            <div class="rule w80"></div><div class="rule w50"></div>
+            <div class="detail-note tool-note">Please confirm this date.</div>
+            <div class="detail-box tool-point"></div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow wrap" aria-labelledby="workflow-title">
+      <h2 id="workflow-title">Open. Annotate. Download.</h2>
+      <div class="steps interactive" aria-label="Preview the three steps" hidden>
+        <button type="button" data-step="open" aria-pressed="false"><span>1</span>Open</button><i aria-hidden="true"></i>
+        <button type="button" data-step="annotate" aria-pressed="false"><span>2</span>Annotate</button><i aria-hidden="true"></i>
+        <button type="button" data-step="download" aria-pressed="true"><span>3</span>Download</button>
+      </div>
+      <div class="workflow-demo" data-step="download">
+        <div class="file-bar"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6ZM14 2v6h6M8 13h8M8 17h5"/></svg><span>project-review.pdf</span><svg class="file-check" aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg></div>
+        <div class="result-document" role="img" aria-label="PDF exported from Annotate PDF, with the highlight, arrow and note visible in the document.">
+          <div aria-hidden="true" class="result-content"><div class="result-lines"><div class="rule w90"></div><div class="result-date">Launch: October 24<i class="result-highlight"></i></div><div class="rule w70"></div></div><svg class="result-arrow" viewBox="0 0 100 40"><path d="M92 20H8m14-12L8 20l14 12"/></svg><div class="result-note">Please confirm<br>this date.</div></div>
+        </div>
+        <p class="example-label">Example PDF · Demo</p>
+      </div>
+      <p class="result-copy">Your notes stay visible in a regular PDF viewer.</p>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title"><div class="wrap">
+      <h2 id="closing-title">Your PDF stays<br>on your device.</h2>
+      <ul class="benefits">
+        <li><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>No uploads.</li>
+        <li><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a7 7 0 0 1 12-5m2-3 6 6m0-6-6 6"/></svg>No account.</li>
+        <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m2 2 20 20M8.5 16.5a5 5 0 0 1 7 0M5 12a10 10 0 0 1 4-2m6 0a10 10 0 0 1 4 2M2 7a16 16 0 0 1 3-2m4-1a16 16 0 0 1 13 3M12 20h.01"/></svg>Works offline after installation.</li>
+      </ul>
+      <button class="install" type="button" commandfor="install-dialog" command="show-modal" data-install>Add Annotate PDF to Chrome <span aria-hidden="true">↗</span></button>
+      <p class="platform">For Chrome on desktop.</p>
+    </div></section>
+  </main>
+  <footer class="site-footer wrap"><a class="brand" href="/"><img src="/welcome/assets/annotate-pdf.png" width="28" height="28" alt="">Annotate PDF</a><a href="/privacy/">Privacy Policy</a></footer>
+  <dialog id="install-dialog" closedby="any" lang="en" aria-labelledby="install-title" aria-describedby="install-description">
+    <h2 id="install-title">The extension is under review.</h2>
+    <p id="install-description">We’ll add the store link once it’s published.</p>
+    <form method="dialog"><button class="install" autofocus>Got it</button></form>
+  </dialog>
+</body>
 </html>
