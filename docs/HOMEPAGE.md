@@ -38,3 +38,11 @@ At the owner’s request, visible “Example PDF · Demo” labels and arrows wi
 Point uses a rectangle anchored directly to the date, with 10 px vertical and 12 px horizontal offsets instead of fixed page coordinates. CSS/JS cache versions are now 2.
 
 The old frame failed the vertical-symmetry regression (−3 px above and 29.5 px below at 1440 px); the updated frame passed at 320, 768 and 1440 px. Focused checks confirmed tab visibility, dialog copy, 18 px minimum type, no horizontal overflow, and 12 initial / 10 original-state keyword occurrences. Desktop/mobile screenshots and the final diff were reviewed. Local load samples were 38–53 ms; sampled Point click-to-next-frame latency was 21–33 ms, and approximate JS heap was 2.81 MB. These are local measurements, not production performance guarantees or whole-browser memory figures. The static homepage has no persisted settings to migrate.
+
+## Button states aligned with the Open PDF reference
+
+The owner requested the live `/prototype/start.html` Open PDF button treatment across homepage buttons. The reference’s `pdf-open.css` overrides the older primary-button styling: resting background `#FFF0EC`, text `#B84230`, 1 px `#0B120E24` border, 8 px radius; hover `#A43828` with white text; pressed `#902F22` with white text. Keyboard focus uses a 2 px accent outline with a 2 px offset. Disabled buttons retain their resting colors at 55% opacity with a wait cursor and no hover reaction.
+
+These states apply to installation/dialog buttons, comparison buttons, annotation tabs and workflow steps. Selected toggles retain the design-system `#ECEBF0` background and accent text on hover. Page-specific sizing remains at least 18 px. The reference and design-system files are unchanged; only homepage CSS and its cache version (3) changed.
+
+Isolated Playwright compared computed states directly against the served reference. The previous homepage failed the resting-background comparison; the update passed 241 focused assertions at 1440 and 320 px, including selected hover, focus, disabled states, dialog activation, keyboard tab selection and readable overflow-free layout. Screenshots and final diff reviewed. Evidence is kept in the product workspace under `docs/verification/homepage/buttons-*`. No JavaScript, persistence or settings migration changed.
