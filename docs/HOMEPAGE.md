@@ -46,3 +46,9 @@ The owner requested the live `/prototype/start.html` Open PDF button treatment a
 These states apply to installation/dialog buttons, comparison buttons, annotation tabs and workflow steps. Selected toggles retain the design-system `#ECEBF0` background and accent text on hover. Page-specific sizing remains at least 18 px. The reference and design-system files are unchanged; only homepage CSS and its cache version (3) changed.
 
 Isolated Playwright compared computed states directly against the served reference. The previous homepage failed the resting-background comparison; the update passed 241 focused assertions at 1440 and 320 px, including selected hover, focus, disabled states, dialog activation, keyboard tab selection and readable overflow-free layout. Screenshots and final diff reviewed. Evidence is kept in the product workspace under `docs/verification/homepage/buttons-*`. No JavaScript, persistence or settings migration changed.
+
+## Installation caption alignment
+
+Both installation buttons and their platform captions now share an inline flex column. “For Chrome on desktop” is centered relative to its button with a 12 px gap and 18 px type. The group fills the content width on small screens. Hero spacing belongs to the group, not the button. CSS cache version: 4.
+
+Focused isolated Playwright regression: the prior hero caption failed the center-alignment assertion; the update passed at 320/768/1440 px for both groups, with zero measured center offset, no horizontal overflow and working installation dialogs. Screenshots and final diff reviewed. Evidence: `caption-check.mjs`, `caption-before.json`, `caption-after.json`, `caption-*.png` in the product workspace. No script, state, design-system or reference changes.
