@@ -65,3 +65,7 @@ At the owner's request, removed only the closing sentence “You’re ready to m
 ## OS-neutral browser illustrations — 13 October 2026
 
 At the owner's request, both illustrations now have an empty solid top strip instead of window dots, a named tab, its close icon and the new-tab plus. The strips retain their original 44 px height and color. Removed only the displayed annotatepdf.org/welcome text from both address fields; shapes and remaining browser icons are unchanged. CSS and all other page markup remain unchanged. A before/after isolated Chrome comparison at 3440, 1440, 1366, 768 and 320 px, plus 768 px at DPR 2, confirmed identical geometry for every retained element and no horizontal overflow or page/request errors.
+
+## Address icon removed — 13 October 2026
+
+Removed only the filter/site-controls SVG from both address fields at the owner's request. All other HTML, CSS and assets remain unchanged. Before/after isolated Chrome checks at 3440, 1440, 1366, 768 and 320 px, plus 768 px at DPR 2, confirmed identical geometry for all retained elements. Both empty address fields preserve their dimensions; no overflow or page/request errors.
