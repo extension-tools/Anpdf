@@ -61,3 +61,7 @@ Focused isolated Chrome checks passed on 13 viewport/density combinations from 3
 ## Closing rows removed — 13 October 2026
 
 At the owner's request, removed only the closing sentence “You’re ready to make your first annotation.” and the entire footer row “Annotate PDF · Your PDFs stay on your device.” The welcome page now ends after the second illustration. All remaining markup and CSS are unchanged. An isolated browser comparison at 1440×900, 1366×768, 768×1024 and 320×740 confirmed identical text and bounding boxes for the header, instructions and both illustrations, with no horizontal overflow or page/request errors.
+
+## OS-neutral browser illustrations — 13 October 2026
+
+At the owner's request, both illustrations now have an empty solid top strip instead of window dots, a named tab, its close icon and the new-tab plus. The strips retain their original 44 px height and color. Removed only the displayed annotatepdf.org/welcome text from both address fields; shapes and remaining browser icons are unchanged. CSS and all other page markup remain unchanged. A before/after isolated Chrome comparison at 3440, 1440, 1366, 768 and 320 px, plus 768 px at DPR 2, confirmed identical geometry for every retained element and no horizontal overflow or page/request errors.
