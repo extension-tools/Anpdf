@@ -47,7 +47,7 @@ body {
 main {
   max-width:1088px;
   margin:0 auto;
-  padding:24px 48px 0
+  padding:24px 48px 32px
 }
 h1,p,figure {
   margin:0
@@ -459,7 +459,7 @@ footer img {
 }
 @media(max-width:720px) {
   main {
-    padding:28px 20px 0
+    padding:28px 20px 32px
   }
   .welcome-header {
     margin-bottom:24px

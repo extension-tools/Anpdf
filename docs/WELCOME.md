@@ -69,3 +69,9 @@ At the owner's request, both illustrations now have an empty solid top strip ins
 ## Address icon removed — 13 October 2026
 
 Removed only the filter/site-controls SVG from both address fields at the owner's request. All other HTML, CSS and assets remain unchanged. Before/after isolated Chrome checks at 3440, 1440, 1366, 768 and 320 px, plus 768 px at DPR 2, confirmed identical geometry for all retained elements. Both empty address fields preserve their dimensions; no overflow or page/request errors.
+
+## Bottom page spacing — October 13, 2026
+
+The owner requested a small background strip below the second illustration. Main bottom padding is now 32px (previously 0) on desktop and at the mobile breakpoint. The workspace background remains `#F1F4F8`. The instruction-to-illustration gap is 20px, so the final outer space is one spacing step larger. No content, illustration dimensions, horizontal spacing or preceding vertical positions changed.
+
+Focused isolated Playwright regression check failed before the fix (0 instead of 32px) and passed after it at widths 3440, 1440, 1366, 768, 720, 390 and 320px. Measured CSS border boxes confirm the same illustration geometry before and after, unchanged top spacing, main height increased by exactly 32px, and no horizontal overflow. Bottom-of-page desktop and mobile screenshots were visually checked.
