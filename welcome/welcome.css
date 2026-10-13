@@ -294,13 +294,13 @@ h1 span {
   width:18px
 }
 .menu-note {
-  font-size:13px;
+  font-size:14px;
   font-weight:600;
   padding:0 24px;
   margin-bottom:8px
 }
 .menu-description {
-  font-size:12px;
+  font-size:14px;
   line-height:1.5;
   color:var(--secondary);
   padding:0 24px 18px
@@ -343,7 +343,7 @@ h1 span {
   align-items:center;
   gap:12px;
   padding:18px 24px;
-  font-size:13px;
+  font-size:14px;
   border-top:1px solid var(--border)
 }
 .menu-footer .icon {
@@ -352,23 +352,13 @@ h1 span {
 }
 .pin-note {
   position:absolute;
-  bottom:32px;
-  right:220px;
+  bottom:14px;
+  right:26px;
+  width:360px;
+  text-align:center;
   color:var(--primary);
-  font-size:13px;
+  font-size:14px;
   font-weight:500
-}
-.pin-note svg {
-  position:absolute;
-  left:calc(100% + 8px);
-  bottom:0;
-  width:120px;
-  height:120px;
-  fill:none;
-  stroke:var(--primary);
-  stroke-width:2;
-  stroke-linecap:round;
-  stroke-linejoin:round
 }
 .open-step {
   margin-top:20px
@@ -402,7 +392,7 @@ h1 span {
 }
 .preview-description {
   color:var(--secondary);
-  font-size:13px;
+  font-size:14px;
   margin:10px 0 20px
 }
 .preview-drop {
@@ -427,24 +417,12 @@ h1 span {
   border:1px solid var(--border);
   border-radius:8px;
   padding:8px 12px;
-  font-size:13px;
+  font-size:16px;
   font-weight:600
 }
 .preview-open .icon {
   width:18px;
   height:18px
-}
-.open-arrow {
-  position:absolute;
-  right:108px;
-  top:103px;
-  width:155px;
-  height:100px;
-  fill:none;
-  stroke:var(--primary);
-  stroke-width:2;
-  stroke-linecap:round;
-  stroke-linejoin:round
 }
 .finish {
   text-align:center;
@@ -458,7 +436,7 @@ footer {
   justify-content:center;
   gap:10px;
   color:var(--secondary);
-  font-size:12px;
+  font-size:14px;
   line-height:1.5;
   margin:72px 24px 32px
 }
@@ -509,7 +487,7 @@ footer img {
     gap:12px
   }
   .browser-content {
-    height:310px
+    height:340px
   }
   .ghost-page {
     display:none
@@ -520,22 +498,13 @@ footer img {
     width:330px
   }
   .pin-note {
-    right:156px;
-    bottom:22px;
-    font-size:11px
-  }
-  .pin-note svg {
-    width:75px;
-    height:120px;
-    left:calc(100% + 4px)
+    left:0;
+    right:0;
+    width:auto;
+    bottom:14px
   }
   .open-step {
     margin-top:32px
-  }
-  .open-arrow {
-    right:95px;
-    width:80px;
-    height:70px
   }
   .start-preview {
     height:285px;
@@ -547,7 +516,7 @@ footer img {
   footer {
     flex-wrap:wrap;
     margin-top:52px;
-    font-size:11px
+    font-size:14px
   }
   .footer-dot {
     display:none
@@ -596,7 +565,7 @@ footer img {
     gap:8px
   }
   .extension-row>span:not(.pin-target) {
-    font-size:13px
+    font-size:14px
   }
   .open-browser .chrome-address {
     gap:12px
