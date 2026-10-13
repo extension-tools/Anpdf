@@ -233,6 +233,10 @@ h2 {
   outline:2px solid var(--primary);
   outline-offset:3px
 }
+/* Browser glyph stays neutral; the tutorial ring and badge carry the accent. */
+.browser-puzzle {
+  color:var(--text)
+}
 .callout {
   position:absolute;
   right:-10px;
