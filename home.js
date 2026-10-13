@@ -28,7 +28,7 @@
 
   const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
   const toolImage = document.querySelector('.tool-example');
-  const descriptions = {highlight:'Document example with the launch date highlighted.',note:'Document example with a text note asking to confirm the launch date.',point:'Document example with an arrow and a rectangle pointing to the launch date.'};
+  const descriptions = {highlight:'Document example with the launch date highlighted.',note:'Document example with a text note asking to confirm the launch date.',point:'Document example with a rectangle framing the launch date.'};
   const selectTab = tab => {
     tabs.forEach(item => {
       const active = item === tab;
@@ -59,7 +59,7 @@
     button.addEventListener('click', () => {
       workflow.dataset.step = button.dataset.step;
       document.querySelectorAll('.steps button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      result.setAttribute('aria-label', button.dataset.step === 'download' ? exportDescription : button.dataset.step === 'open' ? 'Original example PDF before annotation.' : 'Example document with highlight, arrow and note, ready to download.');
+      result.setAttribute('aria-label', button.dataset.step === 'download' ? exportDescription : button.dataset.step === 'open' ? 'Original example PDF before annotation.' : 'Example document with highlight and note, ready to download.');
     });
   });
   document.querySelectorAll('.interactive').forEach(element => { element.hidden = false; });
