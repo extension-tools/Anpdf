@@ -4,12 +4,20 @@
 .step-instructions p { font-size:20px; line-height:1.65; }
 .step-instructions { margin-bottom:24px; }
 .open-step { margin-top:32px; }
+/* The target owns its arrow. At 45 degrees, offset the tip by the outer
+   ring radius + 8px clear space + half the arrow stroke. */
+.toolbar-target { --target-radius:19px; }
+.pin-target { --target-radius:15px; }
 .guide-arrow {
+  --tip-x:196px;
+  --tip-y:48px;
+  --half-stroke:1.5px;
+  --tip-offset:calc((var(--target-radius) + 5px + 8px + var(--half-stroke)) * .7071067812);
   position:absolute;
   width:200px;
   height:64px;
-  right:24px;
-  top:-37px;
+  left:calc(50% - var(--tip-offset) - var(--tip-x));
+  top:calc(50% - var(--tip-offset) - var(--tip-y));
   overflow:visible;
   pointer-events:none;
   color:var(--primary);
@@ -18,8 +26,6 @@
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-/* Each arrow is owned by its badge: the tip stays 6px left of the circle,
-   aligned with its centre, regardless of the viewport or French wrapping. */
 .extension-row { min-height:62px; height:auto; padding-top:12px; padding-bottom:12px; }
 /* Keep the extension row compact; reserve the arrow arc above it. */
 .pin-browser .browser-content { height:364px; }
@@ -29,7 +35,7 @@
   .desktop-break { display:block; }
   .pin-browser .browser-content { height:384px; }
   .extension-row>span:not(.pin-target) { white-space:normal; }
-  .guide-arrow { width:150px; height:48px; right:25px; top:-25px; }
+  .guide-arrow { width:150px; height:48px; --tip-x:147px; --tip-y:36px; --half-stroke:1.125px; }
 }
 
 .extension-row>span:not(.pin-target) { min-width:0; white-space:normal; line-height:20px; }

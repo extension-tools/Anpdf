@@ -114,3 +114,21 @@ Corrected the French extension name to `Écrire sur un PDF — Annotate PDF` fro
 Both localized extension rows now use a 62px minimum with natural height and 12px vertical padding, instead of a fixed 112px. French needs 64px for its two-line full name; Japanese stays at 62px. Added space below the menu description keeps the arrow above the compact row. Reduced illustration height by 36px; all three arrows retain their 6px tip gap. The French title separates the introduction and product name to avoid an orphaned PDF line. Changes are restricted to French HTML/CSS and Japanese CSS; English HTML/CSS/assets are untouched. No scripts, requests or runtime work added.
 
 Regression checks failed before the fix (112px rows in both locales and incorrect French name), then passed in isolated local Chrome at 1366, 1920, 3440, 768, 390 and 320px for both locales. All 12 cases: exact approved name in heading and menu, compact row, no overflow/errors, loaded images, arrows contained and aligned, no intersections with text glyph rectangles, and menu/caption gap ≥31px. Desktop/mobile screenshots visually reviewed. Evidence and retained runner: `Anpdf/exports/welcome-compact/`.
+
+## French arrow clearance — 22 October 2026
+
+Owner-approved correction: keep each curved arrow visibly separated from the large target ring by 8 CSS px, pointing toward its upper-left quadrant and away from the numbered badge. Preserve the existing curves, strokes, colours, target rings, badges, copy and layout. Only `/welcome/fr/` changes.
+
+The three decorative SVGs are now direct children of their target containers instead of their numbered badges. Scoped CSS places each tip at 45 degrees from the target centre, including the target radius, 3px outline offset, 2px outline, 8px gap and half the rendered arrow stroke. Mobile SVG scaling retains the same visible clearance. This supersedes the earlier badge-centred 6px measurements: those measured the wrong circle and did not protect the large outline.
+
+Focused regression `tests/welcome-arrow-spacing.mjs` failed before the fix at 1440 and 390px: minimum arrow-to-outer-ring distance, including stroke, was −5.58 to −4.85px (inside the ring). It passes afterward at 1440, 721, 720, 390 and 320px: all 15 arrow clearances are 7.998–8.000px; badge clearance is at least 19.69px. The check samples both shaft and arrowhead in rendered screen coordinates, includes stroke thickness, checks text glyph rectangles, containment, loaded images and horizontal overflow. No errors or collisions. Desktop and 320px screenshots visually reviewed. Compared before/after at 1440 and 390px: all figure, menu, caption, target and badge rectangles and body text are identical.
+
+Static HTML/CSS: zero page scripts, no new assets or dependencies. Five fresh isolated Chrome contexts on the owner's laptop recorded localhost loadEventEnd 17.2–235.4ms, no observed long tasks and sampled JS heap 1.54–2.15MB including test instrumentation. These are short local observations, not production-network or sustained-memory guarantees. No extension code, storage, settings or installation flow changes; no extension build or upgrade test is applicable.
+
+Run with Playwright installed, or set `PLAYWRIGHT_MODULE` to its absolute `index.mjs` path:
+
+```sh
+node tests/welcome-arrow-spacing.mjs
+```
+
+The runner serves this checkout locally, uses isolated headless Chrome contexts, and writes screenshots/results to `/tmp/anpdf-arrow-check` (override `OUTPUT_DIR`). `BASE_URL` selects an already deployed site; `WIDTHS` selects affected widths. Local before/after evidence is retained in the extension workspace at `exports/welcome-arrow-spacing/`.
