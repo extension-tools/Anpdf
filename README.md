@@ -23,7 +23,7 @@ The browser extension source is maintained separately. Local access notes and cr
 
 ## Welcome guide
 
-`welcome/index.html` explains how to pin Annotate PDF and open a local PDF. It uses self-hosted Montserrat, the approved extension icon, and the product palette. The browser illustrations are instructional graphics, not interactive controls. See [implementation and brand notes](docs/WELCOME.md).
+The English (`welcome/index.html`), French (`welcome/fr/index.html`) and Japanese (`welcome/ja/index.html`) guides explain how to pin Annotate PDF and open a local PDF. They share the approved gentle arrows, an 8px gap around highlighted targets, self-hosted fonts, the extension icon and product palette. The browser illustrations are instructional graphics, not interactive controls. Arrow layout is verified across 16 viewport/DPR configurations per language; see [implementation and verification notes](docs/WELCOME.md).
 
 ## Privacy policy
 
