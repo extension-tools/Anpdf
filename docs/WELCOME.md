@@ -96,3 +96,13 @@ Isolated Playwright / Chrome for Testing 151 on the owner’s laptop, 22 October
 Seven fresh local contexts: loadEventEnd 27.8–84.1ms; no observed Long Tasks; sampled JS heap 1.86–1.90MB including verification instrumentation. Static page, zero page scripts. These short localhost measurements do not establish production network latency or total browser memory.
 
 Evidence in the extension workspace: `exports/welcome-fr-check/results.json`, `fr-1366.png`, `fr-320.png`, and the retained verification script.
+
+## Japanese welcome guide — 22 October 2026
+
+Published separately at `/welcome/ja/` on the owner's request. Translates instructions, illustration labels, metadata and accessible descriptions. The extension name `PDF 書き込み` matches `src/_locales/ja/messages.json`; the editor retains its Annotate PDF brand. Editor labels match the Japanese UI catalog: `PDFを開く`, `ここにPDFをドラッグ＆ドロップ`, and `PDFにハイライトや注釈を追加。`.
+
+The page uses existing self-hosted base CSS, fonts and icon, plus scoped `ja.css`. It preserves the French guide's coral arrows anchored to numbered badges. Native Japanese sans-serif fallbacks, a mobile title break and a bounded drop zone accommodate Japanese text without new font downloads or JavaScript. English, French, Russian pages and extension install routing are unchanged.
+
+Focused verification: isolated local Chrome for Testing at 1366×768, 1920×1080, 2560×1080, 3440×1440, 768×1024 DPR 2, 390×844 and 320×740. All seven passed: `lang=ja`, loaded fonts/images, no horizontal overflow or page/request errors, three arrows within illustrations, tips aligned with badge centres and separated by 6px, no label collisions, menu/caption gap ≥33px. Desktop and 320px screenshots visually reviewed. No changes to existing language files.
+
+Seven fresh local contexts: loadEventEnd 26.3–92.1ms; no observed long tasks; sampled JS heap 1.86–1.90MB including verification instrumentation. Static page with zero scripts. Local samples do not establish production latency or total browser memory. Evidence: `Anpdf/exports/welcome-ja-check/` (results, screenshots, retained runner).
