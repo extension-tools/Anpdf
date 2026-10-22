@@ -22,17 +22,19 @@ try{for(const width of (process.env.WIDTHS||'1440,721,720,390,320').split(',').m
   const arrows=[...document.querySelectorAll('.guide-arrow')].map(svg=>{
    const target=svg.closest('.toolbar-target,.pin-target'),r=rect(target),f=rect(svg.closest('figure')),badge=rect(target.querySelector('.callout'));
    const cx=r.x+r.width/2,cy=r.y+r.height/2,style=getComputedStyle(target),radius=r.width/2+parseFloat(style.outlineOffset)+parseFloat(style.outlineWidth);
-   const paths=[...svg.querySelectorAll('path')],m=paths[0].getScreenCTM(),halfStroke=parseFloat(getComputedStyle(svg).strokeWidth)*Math.hypot(m.a,m.b)/2;
+   const paths=[...svg.querySelectorAll('path,polygon')],polygon=svg.querySelector('polygon'),m=paths[0].getScreenCTM(),halfStroke=polygon?0:parseFloat(getComputedStyle(svg).strokeWidth)*Math.hypot(m.a,m.b)/2;
    const pts=paths.flatMap(p=>Array.from({length:401},(_,i)=>{const q=p.getPointAtLength(p.getTotalLength()*i/400);return new DOMPoint(q.x,q.y).matrixTransform(p.getScreenCTM());}));
-   const shaft=paths[0],q=shaft.getPointAtLength(shaft.getTotalLength()),tip=new DOMPoint(q.x,q.y).matrixTransform(m);
+   if(polygon)pts.push(...[...polygon.points].map(p=>new DOMPoint(p.x,p.y).matrixTransform(m)));
+   const shaft=paths[0],q=polygon?[...polygon.points].find(p=>p.x===196&&p.y===48):shaft.getPointAtLength(shaft.getTotalLength()),tip=new DOMPoint(q.x,q.y).matrixTransform(m);
+   const approvedShape=Boolean(polygon&&polygon.points.length>10&&getComputedStyle(polygon).fill===getComputedStyle(svg).color&&getComputedStyle(polygon).stroke==='none'&&svg.querySelectorAll('path').length===0);
    const gap=Math.min(...pts.map(p=>Math.hypot(p.x-cx,p.y-cy)-radius-halfStroke));
    const badgeGap=Math.min(...pts.map(p=>Math.hypot(p.x-(badge.x+badge.width/2),p.y-(badge.y+badge.height/2))-badge.width/2-3-halfStroke));
    const collisions=textBoxes.filter(b=>pts.some(p=>p.x+halfStroke>b.x&&p.x-halfStroke<b.right&&p.y+halfStroke>b.y&&p.y-halfStroke<b.bottom)).map(b=>b.text);
-   return {gap,badgeGap,upperLeft:tip.x<cx&&tip.y<cy,contained:pts.every(p=>p.x-halfStroke>=f.x&&p.x+halfStroke<=f.right&&p.y-halfStroke>=f.y&&p.y+halfStroke<=f.bottom),collisions};
+   return {approvedShape,gap,badgeGap,upperLeft:tip.x<cx&&tip.y<cy,contained:pts.every(p=>p.x-halfStroke>=f.x&&p.x+halfStroke<=f.right&&p.y-halfStroke>=f.y&&p.y+halfStroke<=f.bottom),collisions};
   });
   return {arrows,overflow:document.documentElement.scrollWidth>innerWidth,images:[...document.images].every(i=>i.complete&&i.naturalWidth>0),geometry:[...document.querySelectorAll('figure,.extension-menu,.pin-note,.toolbar-target,.pin-target,.callout')].map(e=>{const r=rect(e);return{selector:e.className,x:r.x,y:r.y,w:r.width,h:r.height}}),text:document.body.innerText,scripts:document.scripts.length,loadMs:performance.getEntriesByType('navigation')[0].loadEventEnd,heap:performance.memory?.usedJSHeapSize,longTasks:window.longTasks};
  });
- const pass=response.status()===200&&!errors.length&&!checks.overflow&&checks.images&&checks.arrows.length===3&&checks.arrows.every(a=>Math.abs(a.gap-8)<.2&&a.badgeGap>=8&&a.upperLeft&&a.contained&&!a.collisions.length);
+ const pass=response.status()===200&&!errors.length&&!checks.overflow&&checks.images&&checks.arrows.length===3&&checks.arrows.every(a=>a.approvedShape&&Math.abs(a.gap-8)<.2&&a.badgeGap>=8&&a.upperLeft&&a.contained&&!a.collisions.length);
  results.push({width,pass,errors,...checks});await page.screenshot({path:`${out}/fr-${width}.png`,fullPage:true});await context.close();
 }}finally{await browser.close();await new Promise(r=>server.close(r));}
 await fs.writeFile(out+'/results.json',JSON.stringify(results,null,2));
