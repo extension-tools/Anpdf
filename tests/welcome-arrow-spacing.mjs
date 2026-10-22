@@ -9,12 +9,13 @@ const server=createServer(async(req,res)=>{try{let f=path.join(root,decodeURI(ne
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const base=process.env.BASE_URL||`http://127.0.0.1:${server.address().port}`;
 const browser=await chromium.launch({headless:true,channel:'chrome'}),results=[];
-try{for(const width of (process.env.WIDTHS||'1440,721,720,390,320').split(',').map(Number)){
- const context=await browser.newContext({viewport:{width,height:1000},deviceScaleFactor:1});
+const sizes=process.env.SIZES?JSON.parse(process.env.SIZES):[[1280,720],[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[3440,1440],[3840,2160],[1024,768],[768,1024,2],[721,900],[720,900],[390,844],[320,740],[1440,900,2],[1920,1080,2]];
+try{for(const locale of (process.env.LOCALES||'en,fr,ja').split(','))for(const [width,height,dpr=1] of sizes){
+ const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:dpr});
  const page=await context.newPage();await page.emulateMedia({reducedMotion:'reduce'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));
  await page.addInitScript(()=>{window.longTasks=[];new PerformanceObserver(l=>window.longTasks.push(...l.getEntries().map(e=>e.duration))).observe({type:'longtask',buffered:true});});
- const response=await page.goto(base+'/welcome/fr/',{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready);
+ const response=await page.goto(base+(locale==='en'?'/welcome/':`/welcome/${locale}/`),{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready);
  const checks=await page.evaluate(()=>{
   const rect=e=>e.getBoundingClientRect();
   const labels=[...document.querySelectorAll('.menu-heading,.menu-note,.menu-description,.extension-row>span:not(.pin-target),.menu-footer,.pin-note,.ghost-brand,.preview-brand,.preview-description,.preview-drop')];
@@ -32,11 +33,12 @@ try{for(const width of (process.env.WIDTHS||'1440,721,720,390,320').split(',').m
    const collisions=textBoxes.filter(b=>pts.some(p=>p.x+halfStroke>b.x&&p.x-halfStroke<b.right&&p.y+halfStroke>b.y&&p.y-halfStroke<b.bottom)).map(b=>b.text);
    return {approvedShape,gap,badgeGap,upperLeft:tip.x<cx&&tip.y<cy,contained:pts.every(p=>p.x-halfStroke>=f.x&&p.x+halfStroke<=f.right&&p.y-halfStroke>=f.y&&p.y+halfStroke<=f.bottom),collisions};
   });
-  return {arrows,overflow:document.documentElement.scrollWidth>innerWidth,images:[...document.images].every(i=>i.complete&&i.naturalWidth>0),geometry:[...document.querySelectorAll('figure,.extension-menu,.pin-note,.toolbar-target,.pin-target,.callout')].map(e=>{const r=rect(e);return{selector:e.className,x:r.x,y:r.y,w:r.width,h:r.height}}),text:document.body.innerText,scripts:document.scripts.length,loadMs:performance.getEntriesByType('navigation')[0].loadEventEnd,heap:performance.memory?.usedJSHeapSize,longTasks:window.longTasks};
+  const menu=document.querySelector('.extension-menu').getBoundingClientRect(),note=document.querySelector('.pin-note').getBoundingClientRect();
+  return {menuGap:note.y-menu.bottom,arrows,overflow:document.documentElement.scrollWidth>innerWidth,images:[...document.images].every(i=>i.complete&&i.naturalWidth>0),geometry:[...document.querySelectorAll('figure,.extension-menu,.pin-note,.toolbar-target,.pin-target,.callout')].map(e=>{const r=rect(e);return{selector:e.className,x:r.x,y:r.y,w:r.width,h:r.height}}),text:document.body.innerText,scripts:document.scripts.length,loadMs:performance.getEntriesByType('navigation')[0].loadEventEnd,heap:performance.memory?.usedJSHeapSize,longTasks:window.longTasks};
  });
- const pass=response.status()===200&&!errors.length&&!checks.overflow&&checks.images&&checks.arrows.length===3&&checks.arrows.every(a=>a.approvedShape&&Math.abs(a.gap-8)<.2&&a.badgeGap>=8&&a.upperLeft&&a.contained&&!a.collisions.length);
- results.push({width,pass,errors,...checks});await page.screenshot({path:`${out}/fr-${width}.png`,fullPage:true});await context.close();
+ const pass=response.status()===200&&!errors.length&&!checks.overflow&&checks.images&&checks.menuGap>=8&&checks.arrows.length===3&&checks.arrows.every(a=>a.approvedShape&&Math.abs(a.gap-8)<.2&&a.badgeGap>=8&&a.upperLeft&&a.contained&&!a.collisions.length);
+ results.push({locale,width,height,dpr,pass,errors,...checks});await page.screenshot({path:`${out}/${locale}-${width}x${height}@${dpr}.png`,fullPage:true});await context.close();
 }}finally{await browser.close();await new Promise(r=>server.close(r));}
 await fs.writeFile(out+'/results.json',JSON.stringify(results,null,2));
-console.log(JSON.stringify(results.map(({text,geometry,...r})=>r),null,2));
+console.log(JSON.stringify({cases:results.length,passed:results.filter(r=>r.pass).length,failures:results.filter(r=>!r.pass).map(({text,geometry,...r})=>r),gapRange:[Math.min(...results.flatMap(r=>r.arrows.map(a=>a.gap))),Math.max(...results.flatMap(r=>r.arrows.map(a=>a.gap)))]},null,2));
 if(results.some(r=>!r.pass))process.exitCode=1;

@@ -212,6 +212,23 @@ h1 span {
 .browser-puzzle {
   color:var(--text)
 }
+/* The target owns its arrow. At 45 degrees, offset the tip by the outer
+   ring radius + 8px clear space. The filled contour ends exactly at its tip. */
+.toolbar-target { --target-radius:19px; }
+.pin-target { --target-radius:15px; }
+.guide-arrow {
+  --tip-x:196px;
+  --tip-y:48px;
+  --tip-offset:calc((var(--target-radius) + 5px + 8px) * .7071067812);
+  position:absolute;
+  width:200px;
+  height:64px;
+  left:calc(50% - var(--tip-offset) - var(--tip-x));
+  top:calc(50% - var(--tip-offset) - var(--tip-y));
+  overflow:visible;
+  pointer-events:none;
+  color:var(--primary);
+}
 .callout {
   position:absolute;
   right:-10px;
@@ -231,7 +248,7 @@ h1 span {
   width:18px
 }
 .browser-content {
-  height:320px;
+  height:336px;
   overflow:hidden;
   padding:44px 52px;
   background:var(--surface)
@@ -303,7 +320,7 @@ h1 span {
   font-size:14px;
   line-height:1.5;
   color:var(--secondary);
-  padding:0 24px 18px
+  padding:0 24px 34px
 }
 .extension-row {
   display:flex;
@@ -458,6 +475,7 @@ footer img {
   }
 }
 @media(max-width:720px) {
+  .guide-arrow { width:150px; height:48px; --tip-x:147px; --tip-y:36px; }
   main {
     padding:28px 20px 42px
   }
@@ -487,7 +505,7 @@ footer img {
     gap:12px
   }
   .browser-content {
-    height:340px
+    height:356px
   }
   .ghost-page {
     display:none
