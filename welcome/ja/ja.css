@@ -1,0 +1,42 @@
+/* Japanese guide only. Shared English guide and assets remain unchanged. */
+:root { --secondary:#5e6169; }
+.welcome-header { margin-bottom:28px; }
+.step-instructions p { font-size:20px; line-height:1.65; }
+.step-instructions { margin-bottom:24px; }
+.open-step { margin-top:32px; }
+.guide-arrow {
+  position:absolute;
+  width:200px;
+  height:64px;
+  right:24px;
+  top:-37px;
+  overflow:visible;
+  pointer-events:none;
+  color:var(--primary);
+  stroke:currentColor;
+  stroke-width:3;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+/* Each arrow is owned by its badge: the tip stays 6px left of the circle,
+   aligned with its centre, regardless of the viewport or Japanese wrapping. */
+.extension-row { height:112px; }
+/* The taller row leaves a clear arc above the extension label. */
+.pin-browser .browser-content { height:400px; }
+.preview-description { text-align:center; padding:0 12px; }
+@media(max-width:720px) {
+  .step-instructions p { font-size:18px; }
+  .desktop-break { display:block; }
+  .pin-browser .browser-content { height:420px; }
+  .extension-row>span:not(.pin-target) { white-space:normal; }
+  .guide-arrow { width:150px; height:48px; right:25px; top:-25px; }
+  .extension-row { height:112px; }
+}
+
+/* Native Japanese fonts keep kana and kanji crisp without a remote font download. */
+:root { font-family:Montserrat,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif; }
+h1 { line-height:1.5; letter-spacing:0; }
+.title-break { display:none; }
+.extension-menu { font-family:Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif; }
+.preview-drop { max-width:calc(100% - 24px); padding:22px 20px; text-align:center; }
+@media(max-width:720px) { .title-break { display:block; } h1 { font-size:clamp(22px,5.4vw,32px); } }
