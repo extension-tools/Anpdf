@@ -79,3 +79,20 @@ Focused isolated Playwright regression check failed before the fix (0 instead of
 ### Bottom spacing adjustment
 
 At the owner's request, increased the bottom padding from 32px to 42px (+31.25%) on all widths. Only the final background strip changes; illustration geometry and preceding spacing remain unchanged.
+
+
+## French welcome guide — 22 October 2026
+
+The owner requested and approved a separate French page at `/welcome/fr/`. `welcome/fr/index.html` translates the instructions, browser illustration captions, metadata and accessible descriptions. The name Annotate PDF matches the extension’s French locale fallback; “Ouvrir un PDF”, “Glissez un PDF ici”, and “Surlignez et annotez votre PDF.” match its French interface.
+
+The French page reuses the existing self-hosted icon, fonts and base CSS. Its separate `fr.css` adds larger 20px instructions (18px on mobile), the current secondary-text token #5E6169, and three coral #B84230 curved SVG arrows. Each arrow is positioned relative to its numbered badge; the tip stops 6px before the circle and aligns with its vertical centre. The pin row reserves a clear area for the curve above its label. The arrows are decorative and hidden from assistive technology. No page JavaScript or new dependencies are added.
+
+English `/welcome/`, the Russian Tilda page and extension installation routing are unchanged. The French route is published independently; selecting it automatically after extension installation would be a separate integration change.
+
+### Focused local verification
+
+Isolated Playwright / Chrome for Testing 151 on the owner’s laptop, 22 October 2026: 1366×768, 1920×1080, 2560×1080, 3440×1440, 768×1024 at DPR 2, 390×844 and 320×740. All seven cases passed: French language, loaded fonts and images, no horizontal overflow, no page/request errors, three contained curves, endpoints aligned to badge centres with a 6px gap, no curve intersection with illustration labels, and at least 49px between menu and pin caption. Desktop and mobile screenshots reviewed. Existing English HTML/CSS/assets are byte-for-byte unchanged.
+
+Seven fresh local contexts: loadEventEnd 27.8–84.1ms; no observed Long Tasks; sampled JS heap 1.86–1.90MB including verification instrumentation. Static page, zero page scripts. These short localhost measurements do not establish production network latency or total browser memory.
+
+Evidence in the extension workspace: `exports/welcome-fr-check/results.json`, `fr-1366.png`, `fr-320.png`, and the retained verification script.
