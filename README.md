@@ -4,6 +4,7 @@ Official website repository for Annotate PDF. The home page presents the product
 
 - Website: https://annotatepdf.org/
 - Post-install welcome guide: https://annotatepdf.org/welcome/
+- French welcome guide: https://annotatepdf.org/welcome/fr/
 - Privacy policy: https://annotatepdf.org/privacy/
 - Hosting: GitHub Pages, published from the root of `main`.
 - Static files are served directly; `.nojekyll` disables Jekyll processing.
