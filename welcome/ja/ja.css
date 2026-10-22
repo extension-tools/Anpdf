@@ -20,17 +20,16 @@
 }
 /* Each arrow is owned by its badge: the tip stays 6px left of the circle,
    aligned with its centre, regardless of the viewport or Japanese wrapping. */
-.extension-row { height:112px; }
-/* The taller row leaves a clear arc above the extension label. */
-.pin-browser .browser-content { height:400px; }
+.extension-row { min-height:62px; height:auto; padding-top:12px; padding-bottom:12px; }
+/* Keep the extension row compact; reserve the arrow arc above it. */
+.pin-browser .browser-content { height:364px; }
 .preview-description { text-align:center; padding:0 12px; }
 @media(max-width:720px) {
   .step-instructions p { font-size:18px; }
   .desktop-break { display:block; }
-  .pin-browser .browser-content { height:420px; }
+  .pin-browser .browser-content { height:384px; }
   .extension-row>span:not(.pin-target) { white-space:normal; }
   .guide-arrow { width:150px; height:48px; right:25px; top:-25px; }
-  .extension-row { height:112px; }
 }
 
 /* Native Japanese fonts keep kana and kanji crisp without a remote font download. */
@@ -40,3 +39,7 @@ h1 { line-height:1.5; letter-spacing:0; }
 .extension-menu { font-family:Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif; }
 .preview-drop { max-width:calc(100% - 24px); padding:22px 20px; text-align:center; }
 @media(max-width:720px) { .title-break { display:block; } h1 { font-size:clamp(22px,5.4vw,32px); } }
+
+.extension-row>span:not(.pin-target) { min-width:0; white-space:normal; line-height:20px; }
+.pin-target { flex-shrink:0; }
+.menu-description { padding-bottom:34px; }
